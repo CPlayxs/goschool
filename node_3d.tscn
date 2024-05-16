@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://wuukyciq3xmh"]
+
+[ext_resource type="PackedScene" uid="uid://dp0tnaje6yus8" path="res://player.tscn" id="1_et11n"]
+[ext_resource type="Texture2D" uid="uid://00hfdoccm5o2" path="res://assets/nino.png" id="1_xgabo"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_1jm38"]
+
+[sub_resource type="Environment" id="Environment_t4m4h"]
+background_mode = 1
+background_color = Color(0.652864, 0.652864, 0.652864, 1)
+ambient_light_color = Color(0.900705, 0.900705, 0.900705, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qnkjb"]
+size = Vector2(20, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rmx5l"]
+transparency = 1
+albedo_texture = ExtResource("1_xgabo")
+billboard_mode = 2
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_gjmcv"]
+material = SubResource("StandardMaterial3D_rmx5l")
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.22457, 0, 0)
+
+[node name="Player" parent="." instance=ExtResource("1_et11n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.23094, 1.01179, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_1jm38")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_t4m4h")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.231, 0, 0)
+mesh = SubResource("PlaneMesh_qnkjb")
+skeleton = NodePath("../Player")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D2"]
+transform = Transform3D(2.03009, 0, 0, 0, 2.03009, 0, 0, 0, 1.06233, 3.32199, 1.06081, -0.0307717)
+mesh = SubResource("QuadMesh_gjmcv")
