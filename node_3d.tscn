@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://wuukyciq3xmh"]
+[gd_scene load_steps=9 format=3 uid="uid://wuukyciq3xmh"]
 
 [ext_resource type="PackedScene" uid="uid://dp0tnaje6yus8" path="res://player.tscn" id="1_et11n"]
 [ext_resource type="Texture2D" uid="uid://00hfdoccm5o2" path="res://assets/nino.png" id="1_xgabo"]
@@ -11,7 +11,7 @@ background_color = Color(0.652864, 0.652864, 0.652864, 1)
 ambient_light_color = Color(0.900705, 0.900705, 0.900705, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_qnkjb"]
-size = Vector2(20, 20)
+size = Vector2(200, 100)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rmx5l"]
 transparency = 1
@@ -22,11 +22,14 @@ billboard_keep_scale = true
 [sub_resource type="QuadMesh" id="QuadMesh_gjmcv"]
 material = SubResource("StandardMaterial3D_rmx5l")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lcwvx"]
+albedo_color = Color(0.0745098, 1, 0, 1)
+
 [node name="Node3D" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.22457, 0, 0)
 
 [node name="Player" parent="." instance=ExtResource("1_et11n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.23094, 1.01179, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.2042, 1.01179, -0.301502)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
@@ -43,5 +46,51 @@ mesh = SubResource("PlaneMesh_qnkjb")
 skeleton = NodePath("../Player")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D2"]
-transform = Transform3D(2.03009, 0, 0, 0, 2.03009, 0, 0, 0, 1.06233, 3.32199, 1.06081, -0.0307717)
+transform = Transform3D(2.03009, 0, 0, 0, 2.03009, 0, 0, 0, 1.06233, -83.0765, 1.06081, -23.3681)
 mesh = SubResource("QuadMesh_gjmcv")
+
+[node name="classroom1" type="CSGBox3D" parent="MeshInstance3D2/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00691223, 1.1917, 1.94294)
+flip_faces = true
+size = Vector3(9.62262, 3.76617, 25.2537)
+
+[node name="bathroom" type="CSGBox3D" parent="MeshInstance3D2/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.6897, 1.1917, 38.6234)
+flip_faces = true
+size = Vector3(9.62262, 3.76617, 20.4238)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="MeshInstance3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.4009, 3.48547, -6.38339)
+use_collision = true
+size = Vector3(102.723, 7.45074, 2.55847)
+material = SubResource("StandardMaterial3D_lcwvx")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="MeshInstance3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93.3983, 3.75549, -6.48822)
+use_collision = true
+size = Vector3(12.5374, 7.45074, 2.55847)
+material = SubResource("StandardMaterial3D_lcwvx")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="MeshInstance3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.1562, 3.41476, 6.27853)
+use_collision = true
+size = Vector3(108.269, 7.45074, 2.55847)
+material = SubResource("StandardMaterial3D_lcwvx")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.3742, 3.59046, 5.98467)
+use_collision = true
+size = Vector3(7.83022, 7.12672, 2.55847)
+material = SubResource("StandardMaterial3D_lcwvx")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.8487, 3.43545, -0.309721)
+use_collision = true
+size = Vector3(1.27506, 7.45074, 14.8964)
+material = SubResource("StandardMaterial3D_lcwvx")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93.0088, 3.43545, -0.309721)
+use_collision = true
+size = Vector3(1.27506, 7.45074, 14.8964)
+material = SubResource("StandardMaterial3D_lcwvx")
