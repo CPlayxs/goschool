@@ -1,7 +1,9 @@
+CSGBox3D
+Node3D
+GridMap
 MeshInstance3D
 WorldEnvironment
 Camera3D
-Node3D
 CollisionShape3D
 StaticBody3D
 Sprite3D
