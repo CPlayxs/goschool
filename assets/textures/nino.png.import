@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://00hfdoccm5o2"
-path.s3tc="res://.godot/imported/nino.png-d512efcb742fec05300c00808fc00bf6.s3tc.ctex"
+path.s3tc="res://.godot/imported/nino.png-979dbd295cabfe927dab6e1dc8852585.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/nino.png"
-dest_files=["res://.godot/imported/nino.png-d512efcb742fec05300c00808fc00bf6.s3tc.ctex"]
+source_file="res://assets/textures/nino.png"
+dest_files=["res://.godot/imported/nino.png-979dbd295cabfe927dab6e1dc8852585.s3tc.ctex"]
 
 [params]
 
