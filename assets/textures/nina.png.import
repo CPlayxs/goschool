@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlfnw6icshoh8"
-path="res://.godot/imported/profe.png-2ebdfaadd6034e93bc6d6a5d289d8d41.ctex"
+uid="uid://dvoheahbu0nb1"
+path="res://.godot/imported/nina.png-0bd7cb662e0177b3947a92e8bcc8801b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/profe.png"
-dest_files=["res://.godot/imported/profe.png-2ebdfaadd6034e93bc6d6a5d289d8d41.ctex"]
+source_file="res://assets/textures/nina.png"
+dest_files=["res://.godot/imported/nina.png-0bd7cb662e0177b3947a92e8bcc8801b.ctex"]
 
 [params]
 
