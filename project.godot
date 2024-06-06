@@ -13,6 +13,7 @@ config_version=5
 config/name="escul"
 run/main_scene="res://scenes/MainMenu.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
+boot_splash/image="res://assets/textures/53454354645.png"
 config/icon="res://assets/textures/icon.svg"
 
 [autoload]

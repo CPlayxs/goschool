@@ -1,3 +1,65 @@
-[gd_scene format=3 uid="uid://b21uy3lo3pc2u"]
+[gd_scene load_steps=8 format=3 uid="uid://b21uy3lo3pc2u"]
+
+[ext_resource type="PackedScene" uid="uid://dp0tnaje6yus8" path="res://scenes/player.tscn" id="1_2ewog"]
+
+[sub_resource type="Environment" id="Environment_g12d0"]
+ambient_light_source = 1
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_w2y8h"]
+size = Vector2(40, 20)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3e46p"]
+data = PackedVector3Array(20, 0, 10, -20, 0, 10, 20, 0, -10, -20, 0, 10, -20, 0, -10, 20, 0, -10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w5s0d"]
+size = Vector3(1, 10.5177, 20.0848)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5yny4"]
+size = Vector3(1, 10.5177, 40.1586)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vaxlu"]
+metallic = 1.0
 
 [node name="Room1" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_g12d0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000336647, 0.0251427, 0.00577259)
+mesh = SubResource("PlaneMesh_w2y8h")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_3e46p")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.8326, 4.45551, 0.338558)
+shape = SubResource("BoxShape3D_w5s0d")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.1683, 4.45551, -0.151585)
+shape = SubResource("BoxShape3D_w5s0d")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.363688, 4.45551, -10.503)
+shape = SubResource("BoxShape3D_5yny4")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.363688, 4.45551, 10.4658)
+shape = SubResource("BoxShape3D_5yny4")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0398102, 4.55615, -0.0612812)
+material_override = SubResource("StandardMaterial3D_vaxlu")
+flip_faces = true
+size = Vector3(40.2809, 10.1123, 20.0526)
+
+[node name="Player" parent="." instance=ExtResource("1_2ewog")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.106284, 1.2516, -0.168921)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.97678, 6.78196, -1.10868)
+omni_range = 29.3653
