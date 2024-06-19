@@ -25,6 +25,10 @@ metallic = 1.0
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_g12d0")
 
+[node name="OmniLight3D" type="OmniLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.97678, 6.78196, -1.10868)
+omni_range = 29.3653
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000336647, 0.0251427, 0.00577259)
 mesh = SubResource("PlaneMesh_w2y8h")
@@ -59,7 +63,3 @@ size = Vector3(40.2809, 10.1123, 20.0526)
 
 [node name="Player" parent="." instance=ExtResource("1_2ewog")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.106284, 1.2516, -0.168921)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.97678, 6.78196, -1.10868)
-omni_range = 29.3653

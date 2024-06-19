@@ -1,5 +1,6 @@
 extends CharacterBody3D
 
+signal has_Escaped
 
 const SPEED = 4.0
 const JUMP_VELOCITY = 3.5
@@ -14,6 +15,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	elif event.is_action_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		get_tree().paused = true
+		has_Escaped.emit()
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		if event is InputEventMouseMotion:
 			pivot.rotate_y(-event.relative.x * 0.01)
@@ -42,3 +45,6 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+	
+	
+	

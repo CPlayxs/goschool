@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dp0tnaje6yus8"]
+[gd_scene load_steps=5 format=3 uid="uid://dp0tnaje6yus8"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_f2yh1"]
+[ext_resource type="PackedScene" uid="uid://tllokrtp47a8" path="res://scenes/pauseMenu.tscn" id="2_rndb2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_34qc3"]
 
@@ -8,6 +9,8 @@
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_f2yh1")
+
+[node name="PauseMenu" parent="." instance=ExtResource("2_rndb2")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_34qc3")
@@ -19,3 +22,5 @@ mesh = SubResource("CapsuleMesh_ffcjn")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.503772, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Pivot"]
+
+[connection signal="has_Escaped" from="." to="PauseMenu" method="_on_player_has_escaped"]
