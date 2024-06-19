@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://tllokrtp47a8"]
+
+[ext_resource type="Script" path="res://scripts/ExitB1.gd" id="1_77toe"]
+[ext_resource type="Script" path="res://scenes/pauseMenu.gd" id="1_agikh"]
+[ext_resource type="Script" path="res://scenes/ResumeB2.gd" id="3_vc4ru"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 2
+process_priority = 1
+process_physics_priority = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_agikh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -217.0
+offset_top = -109.0
+offset_right = -33.0
+offset_bottom = -28.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="ResumeB2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Resume"
+script = ExtResource("3_vc4ru")
+
+[node name="ExitB1" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+script = ExtResource("1_77toe")
+
+[connection signal="has_CameBack" from="VBoxContainer/ResumeB2" to="." method="_on_resume_b_2_has_came_back"]
+[connection signal="pressed" from="VBoxContainer/ResumeB2" to="VBoxContainer/ResumeB2" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitB1" to="VBoxContainer/ExitB1" method="_on_pressed"]
